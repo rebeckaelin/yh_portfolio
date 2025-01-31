@@ -21,15 +21,31 @@ jobs:
       - name: Install dependencies
         run: cd portfolio && npm install
 
-      # Steg 3: Bygg applikationen
+      # Steg 3: Bygg dist
       - name: Build dist
         run: cd portfolio && npm run build # Eller använd rätt kommando om du har en annan struktur
 
-      # Steg 4: Deploy till GitHub Pages (push till gh-pages-branch)
+      # Steg 4: Configure Git (så vi kan göra commits)
+      - name: Configure Git
+        run: |
+          git config --global user.name "Rebecka Larsson"
+          git config --global user.email "rebeckaelin@hotmail.com"
+
+      # Steg 5: Checkout gh-pages branch eller skapa den
+      - name: Checkout gh-pages branch
+        run: |
+          git fetch --prune --unshallow
+          git checkout gh-pages || git checkout --orphan gh-pages
+
+      # Steg 6: Kontrollera om byggfiler finns
+      - name: List build directory
+        run: ls -al portfolio/dist
+
+      # Steg 7: Deploy till GitHub Pages
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          branch: gh-pages # GitHub Pages använder gh-pages-branch
-          folder: portfolio/dist # Mappen som innehåller de byggda filerna
+          branch: gh-pages # Deploya till gh-pages
+          folder: portfolio/dist # Mappen där byggfilerna finns
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Använd GitHub Token för autentisering
