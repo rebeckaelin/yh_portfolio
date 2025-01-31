@@ -36,7 +36,7 @@ const Hero = () => {
             Junior Developer <br /> Umeå, Sweden
           </h2>
 
-          <div className="row-span-1 text-center">
+          <div className="text-center">
             <p className="font-karla text-base">my@mail.se</p>
             <p className="font-karla text-base">073-1234567</p>
           </div>
@@ -46,7 +46,7 @@ const Hero = () => {
           </div>
 
           <div className="text-center">
-            <button className="bg-colorText tracking-wide text-colorText2 font-karla text-xl py-3 px-9 hover:cursor-pointer hover:bg-secondary hover:transition-colors duration-600 ease-in-out">
+            <button className="bg-colorText tracking-wide text-colorText2 font-karla text-xl py-3 px-9 hover:cursor-pointer hover:bg-secondary hover:transition-colors duration-300 ease-in-out">
               contact me
             </button>
           </div>

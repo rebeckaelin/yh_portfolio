@@ -15,7 +15,7 @@ const Navbar = () => {
         <Link
           to="education-section"
           smooth={true}
-          duration={500}
+          duration={1300}
           className="font-alice hover:cursor-pointer hover:text-secondary transition-colors duration-100 ease-in-out"
         >
           Education & Experience
@@ -23,23 +23,23 @@ const Navbar = () => {
         <Link
           to="skills-section"
           smooth={true}
-          duration={500}
-          className="font-alice hover:cursor-pointer hover:text-secondary transition-colors duration-100 ease-in-out"
-        >
-          Skills & Languages
-        </Link>
-        <Link
-          to="projects-section"
-          smooth={true}
-          duration={500}
+          duration={1300}
           className="font-alice hover:cursor-pointer hover:text-secondary transition-colors duration-100 ease-in-out"
         >
           Projects
         </Link>
         <Link
+          to="projects-section"
+          smooth={true}
+          duration={1300}
+          className="font-alice hover:cursor-pointer hover:text-secondary transition-colors duration-100 ease-in-out"
+        >
+          Skills & Languages
+        </Link>
+        <Link
           to="interests-section"
           smooth={true}
-          duration={500}
+          duration={1300}
           className="font-alice hover:cursor-pointer hover:text-secondary transition-colors duration-100 ease-in-out"
         >
           Interests
