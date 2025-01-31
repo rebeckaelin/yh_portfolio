@@ -1,36 +1,27 @@
-name: Deploy to GitHub Pages
+name: Deploy dev meetup
 
 on:
   push:
     branches:
-      - main # När en push görs till main så triggas workflowen
+      - dev
+env:
+  SOURCE_DIR: "portfolio/dist"
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+# permissions:
+#   contents: read
+#   pages: write
+#   id-token: write
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
-      # Steg 1: Checka ut koden
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      # Steg 2: Installera Node.js och kör byggprocessen
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: "14" # Byt ut mot den versionen av Node.js du använder
-
+      - uses: actions/checkout@v4
       - name: Install dependencies
-        run: npm install
-
-      - name: Build the app
-        run: npm run build # Eller vilket kommando som helst du använder för att bygga din app
-
-      # Steg 3: Deploya till GitHub Pages
-      - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4
+        run: cd portfolio && npm install
+      - name: Build dist
+        run: cd client && npm run build
+      - uses: jakejarvis/s3-sync-action@master
         with:
-          branch: gh-pages # Här anger vi att vi vill deploya till gh-pages
-          folder: portfolio/dist # Foldern som ska deployas, ändra om det inte är "build"
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # GitHub token för autentisering
+          args: --follow-symlinks --delete
