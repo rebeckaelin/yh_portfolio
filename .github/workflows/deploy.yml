@@ -3,25 +3,33 @@ name: Deploy dev meetup
 on:
   push:
     branches:
-      - dev
-env:
-  SOURCE_DIR: "portfolio/dist"
-  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - dev # Trigger när något pushes till dev-branchen
 
-# permissions:
-#   contents: read
-#   pages: write
-#   id-token: write
+env:
+  SOURCE_DIR: "portfolio/dist" # Byggmappens väg
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Token för att autentisera actions
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest # Körs på en Ubuntu-maskin
+
     steps:
+      # Steg 1: Checkout din kod
       - uses: actions/checkout@v4
+
+      # Steg 2: Installera beroenden för din app
       - name: Install dependencies
         run: cd portfolio && npm install
+
+      # Steg 3: Bygg applikationen
       - name: Build dist
-        run: cd client && npm run build
-      - uses: jakejarvis/s3-sync-action@master
+        run: cd portfolio && npm run build # Eller använd rätt kommando om du har en annan struktur
+
+      # Steg 4: Deploy till GitHub Pages (push till gh-pages-branch)
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
-          args: --follow-symlinks --delete
+          branch: gh-pages # GitHub Pages använder gh-pages-branch
+          folder: portfolio/dist # Mappen som innehåller de byggda filerna
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Använd GitHub Token för autentisering
