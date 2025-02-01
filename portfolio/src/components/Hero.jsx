@@ -3,7 +3,7 @@ import profile_pic from "../assets/profile_pic.png";
 const Hero = () => {
   return (
     <>
-      <div className="relative w-full h-[70vh] flex">
+      <div className="relative w-full h-[80vh] flex bg-primary">
         <div className="relative w-3/4 h-full bg-[url('../../public/crew-4Hg8LH9Hoxc-unsplash.jpg')] bg-cover bg-fixed bg-bottom">
           <div className="absolute inset-0 bg-black/35"></div>
           <div className="relative z-10 flex flex-col items-start justify-center h-full px-52 pt-74 text-colorText">
@@ -36,8 +36,8 @@ const Hero = () => {
             Junior Developer <br /> Umeå, Sweden
           </h2>
 
-          <div className="text-center">
-            <p className="font-karla text-base">my@mail.se</p>
+          <div className="text-center text-base">
+            <p className="font-karla ">my@mail.se</p>
             <p className="font-karla text-base">073-1234567</p>
           </div>
 
@@ -46,7 +46,7 @@ const Hero = () => {
           </div>
 
           <div className="text-center">
-            <button className="bg-colorText tracking-wide text-colorText2 font-karla text-xl py-3 px-9 hover:cursor-pointer hover:bg-secondary hover:transition-colors duration-300 ease-in-out">
+            <button className=" w-48 bg-colorText tracking-wide text-colorText2 font-karla text-xl py-3 px-9 hover:cursor-pointer hover:bg-secondary hover:transition-colors duration-300 ease-in-out">
               contact me
             </button>
           </div>

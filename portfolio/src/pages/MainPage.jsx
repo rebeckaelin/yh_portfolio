@@ -11,14 +11,32 @@ import Footer from "../components/Footer";
 const MainPage = () => {
   return (
     <>
-      <Navbar />
-      <Hero />
-      <About />
-      <EduAndExp />
-      <Projects />
-      <Skills />
-      <Interests />
-      <Footer />
+      <div className="grid grid-cols-8">
+        <div className="col-start-1 col-end-9 bg-primary">
+          <Navbar />
+        </div>
+        <div className="col-start-1 col-end-9">
+          <Hero />
+        </div>
+        <div className="col-start-1 col-end-9">
+          <About />
+        </div>
+        <div className="col-start-1 col-end-9">
+          <EduAndExp />
+        </div>
+        <div className="col-start-1 col-end-9">
+          <Projects />
+        </div>
+        <div className="col-start-1 col-end-9">
+          <Skills />
+        </div>
+        <div className="col-start-1 col-end-9">
+          <Interests />
+        </div>
+        <div className="col-start-1 col-end-9">
+          <Footer />
+        </div>
+      </div>
     </>
   );
 };

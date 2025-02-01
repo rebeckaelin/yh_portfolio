@@ -1,11 +1,14 @@
-import React from "react";
-
 const Skills = () => {
   return (
-    <div className="h-60">
-      <h2 className="font-alice text-4xl italic font-bold tracking-wide text-primary text-center">
-        Skills & Languages
-      </h2>
+    <div
+      id="skills-section"
+      className=" bg-colorText grid grid-cols-8 pb-18 pt-18 border h-100"
+    >
+      <section className="col-start-3">
+        <h2 className="font-alice text-4xl italic font-bold tracking-wide text-primary">
+          Skills & Languages
+        </h2>
+      </section>
     </div>
   );
 };

@@ -1,8 +1,11 @@
 const About = () => {
   return (
     <>
-      <div className="bg-secondary h-full pb-18 pt-18 flex align-center justify-center">
-        <article id="about-article" className="w-2/4 ">
+      <div
+        id="about-article"
+        className=" h-full pb-18 pt-18 bg-secondary grid grid-cols-4 "
+      >
+        <article className="w-3/4 col-span-4 col-start-2">
           <h2 className="font-alice text-4xl italic font-bold tracking-wide text-primary">
             About
           </h2>

@@ -2,8 +2,11 @@ import { Link } from "react-scroll";
 
 const Navbar = () => {
   return (
-    <nav className="bg-primary text-colorText h-25">
-      <div className="flex justify-center items-center h-full gap-12 tracking-wide text-xl italic w-3/4">
+    <nav className={"bg-primary text-colorText h-25 grid grid-cols-8"}>
+      <div
+        id="navbar"
+        className="col-start-2 col-span-8 flex justify-between items-center h-full gap-12 tracking-wide text-xl italic w-3/4"
+      >
         <Link
           to="about-article" // ID på sektionen du vill scrolla till
           smooth={true}
@@ -21,7 +24,7 @@ const Navbar = () => {
           Education & Experience
         </Link>
         <Link
-          to="skills-section"
+          to="projects-section"
           smooth={true}
           duration={1300}
           className="font-alice hover:cursor-pointer hover:text-secondary transition-colors duration-100 ease-in-out"
@@ -29,7 +32,7 @@ const Navbar = () => {
           Projects
         </Link>
         <Link
-          to="projects-section"
+          to="skills-section"
           smooth={true}
           duration={1300}
           className="font-alice hover:cursor-pointer hover:text-secondary transition-colors duration-100 ease-in-out"
