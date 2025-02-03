@@ -5,7 +5,7 @@ const Navbar = () => {
     <nav className={"bg-primary text-colorText h-25 grid grid-cols-8"}>
       <div
         id="navbar"
-        className="col-start-2 col-span-8 flex justify-between items-center h-full gap-12 tracking-wide text-xl italic w-3/4"
+        className="col-start-3 col-span-8 flex gap-16 items-center h-full tracking-wide text-lg italic"
       >
         <Link
           to="about-article" // ID på sektionen du vill scrolla till

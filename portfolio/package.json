@@ -12,6 +12,7 @@
   "dependencies": {
     "@sanity/client": "^6.27.2",
     "@tailwindcss/vite": "^4.0.1",
+    "framer-motion": "^12.0.8",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-scroll": "^1.9.0",

@@ -11,7 +11,7 @@ const EduAndExp = () => {
               <h2 className="font-alice text-4xl italic font-bold tracking-wide text-primary">
                 Education
               </h2>
-              <h3 className="font-karla text-2xl mt-2 tracking-wider text-primary">
+              <h3 className="font-karla text-lg mt-2 tracking-wider text-primary">
                 WHAT I&apos;VE LEARNED
               </h3>
             </div>
@@ -53,7 +53,7 @@ const EduAndExp = () => {
               <h2 className="font-alice text-4xl italic font-bold tracking-wide text-primary">
                 Experience
               </h2>
-              <h3 className="font-karla text-2xl mt-2 tracking-wider text-primary">
+              <h3 className="font-karla text-lg mt-2 tracking-wider text-primary">
                 WHERE I&apos;VE WORKED
               </h3>
             </div>
