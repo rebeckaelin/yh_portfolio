@@ -1,4 +1,6 @@
 import profile_pic from "../assets/profile_pic.png";
+import linkedIn_icon from "../../public/pngimg.com - linkedIn_PNG4.png";
+import gitHub_icon from "../../public/pngimg.com - github_PNG40.png";
 
 const Hero = () => {
   return (
@@ -43,7 +45,12 @@ const Hero = () => {
           </div>
 
           <div className="text-center flex justify-center gap-4">
-            <p>links to linked in</p>
+            <img className="w-10 h-10" src={gitHub_icon} alt="gitHub_icon" />
+            <img
+              className="w-10 h-10 bg-transparent"
+              src={linkedIn_icon}
+              alt="linkedIn_icon"
+            />
           </div>
 
           <div className="text-center">

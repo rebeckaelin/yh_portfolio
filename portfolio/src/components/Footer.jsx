@@ -1,5 +1,7 @@
 import arrow from "../assets/up-arrow-svgrepo-com.svg";
 import { Link } from "react-scroll";
+import linkedIn_icon from "../../public/pngimg.com - linkedIn_PNG4.png";
+import gitHub_icon from "../../public/pngimg.com - github_PNG40.png";
 
 const Footer = () => {
   return (
@@ -9,7 +11,14 @@ const Footer = () => {
           <p className="font-alice text-4xl italic font-bold tracking-wide text-primary">
             I&apos;d love to hear <br /> from you
           </p>
-          <p>links to linked in</p>
+          <div className="flex gap-5">
+            <img className="w-10 h-10" src={gitHub_icon} alt="gitHub_icon" />
+            <img
+              className="w-10 h-10 bg-transparent"
+              src={linkedIn_icon}
+              alt="linkedIn_icon"
+            />
+          </div>
         </section>
         <section className="flex flex-col justify-between col-start-6 font-karla text-base leading-loose">
           <p>
