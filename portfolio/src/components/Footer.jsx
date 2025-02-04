@@ -1,7 +1,7 @@
 import arrow from "../assets/up-arrow-svgrepo-com.svg";
 import { Link } from "react-scroll";
-import linkedIn_icon from "../../public/pngimg.com - linkedIn_PNG4.png";
-import gitHub_icon from "../../public/pngimg.com - github_PNG40.png";
+import linkedIn_icon from "/pngimg.com - linkedIn_PNG4.png";
+import gitHub_icon from "/pngimg.com - github_PNG40.png";
 
 const Footer = () => {
   return (

@@ -1,12 +1,12 @@
 import profile_pic from "../assets/profile_pic.png";
-import linkedIn_icon from "../../public/pngimg.com - linkedIn_PNG4.png";
-import gitHub_icon from "../../public/pngimg.com - github_PNG40.png";
+import linkedIn_icon from "/pngimg.com - linkedIn_PNG4.png";
+import gitHub_icon from "/pngimg.com - github_PNG40.png";
 
 const Hero = () => {
   return (
     <>
       <div className="relative w-full h-[80vh] flex bg-primary">
-        <div className="relative w-3/4 h-full bg-[url('../../public/crew-4Hg8LH9Hoxc-unsplash.jpg')] bg-cover bg-fixed bg-bottom">
+        <div className="relative w-3/4 h-full bg-[url('/crew-4Hg8LH9Hoxc-unsplash.jpg')] bg-cover bg-fixed bg-bottom">
           <div className="absolute inset-0 bg-black/35">
             <div className="relative z-10 flex flex-col items-start justify-center gap-2 w-378  px-82 pt-104 text-colorText">
               <p className="font-karla text-3xl tracking-widest mb-1">

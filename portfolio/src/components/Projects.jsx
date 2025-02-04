@@ -10,7 +10,7 @@ export const Projects = () => {
   const projects = [
     {
       title: "Project One",
-      imageUrl: "../../public/florian-olivo-4hbJ-eymZ1o-unsplash.jpg",
+      imageUrl: "/florian-olivo-4hbJ-eymZ1o-unsplash.jpg",
       description: "A brief description of Project One",
       techUsed: ["JavaScript", "React", "Node.js"],
       moreInfo: "Detailed description about Project One...",
@@ -18,7 +18,7 @@ export const Projects = () => {
     },
     {
       title: "Project Two",
-      imageUrl: "../../public/florian-olivo-4hbJ-eymZ1o-unsplash.jpg",
+      imageUrl: "/florian-olivo-4hbJ-eymZ1o-unsplash.jpg",
       description: "A brief description of Project Two",
       techUsed: ["HTML", "CSS", "Vue.js"],
       moreInfo: "Detailed description about Project Two...",
@@ -26,7 +26,7 @@ export const Projects = () => {
     },
     {
       title: "Project Three",
-      imageUrl: "../../public/florian-olivo-4hbJ-eymZ1o-unsplash.jpg",
+      imageUrl: "/florian-olivo-4hbJ-eymZ1o-unsplash.jpg",
       description: "A brief description of Project Two",
       techUsed: ["HTML", "CSS", "Vue.js"],
       moreInfo: "Detailed description about Project Two...",
@@ -34,7 +34,7 @@ export const Projects = () => {
     },
     {
       title: "Project Four",
-      imageUrl: "../../public/florian-olivo-4hbJ-eymZ1o-unsplash.jpg",
+      imageUrl: "/florian-olivo-4hbJ-eymZ1o-unsplash.jpg",
       description: "A brief description of Project Two",
       techUsed: ["HTML", "CSS", "Vue.js"],
       moreInfo: "Detailed description about Project Two...",
@@ -42,7 +42,7 @@ export const Projects = () => {
     },
     {
       title: "Project Five",
-      imageUrl: "../../public/florian-olivo-4hbJ-eymZ1o-unsplash.jpg",
+      imageUrl: "/florian-olivo-4hbJ-eymZ1o-unsplash.jpg",
       description: "A brief description of Project Two",
       techUsed: ["HTML", "CSS", "Vue.js"],
       moreInfo: "Detailed description about Project Two...",
