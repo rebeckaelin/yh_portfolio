@@ -52,10 +52,10 @@ const EduAndExp = () => {
   return (
     <div
       id="education-section"
-      className="bg-colorText h-full pb-18 pt-18 grid grid-cols-8"
+      className="bg-colorText h-full pb-18 pt-18 grid grid-cols-16"
     >
       {/* Education section */}
-      <div className="flex col-start-3 col-span-2">
+      <div className="flex col-start-5 col-span-2">
         <section className="w-full max-w-2xl flex flex-col gap-5">
           <div>
             <h2 className="font-alice text-4xl italic font-bold tracking-wide text-primary">
@@ -92,7 +92,7 @@ const EduAndExp = () => {
       </div>
 
       {/* Experience section */}
-      <div className="col-start-6 col-span-2">
+      <div className="col-start-10 col-span-2">
         <section className="w-full max-w-2xl flex flex-col gap-5">
           <div>
             <h2 className="font-alice text-4xl italic font-bold tracking-wide text-primary">

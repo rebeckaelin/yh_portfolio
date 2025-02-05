@@ -1,66 +1,77 @@
-import profile_pic from "../assets/profile_pic.png";
-import linkedIn_icon from "/pngimg.com - linkedIn_PNG4.png";
-import gitHub_icon from "/pngimg.com - github_PNG40.png";
+import { useState, useEffect } from "react";
+import client from "../client";
+import imageUrlBuilder from "@sanity/image-url";
+import Sidebar from "./Sidebar.jsx"; // Importera Sidebar
+
+const builder = imageUrlBuilder(client);
 
 const Hero = () => {
+  const [heroData, setHeroData] = useState(null);
+
+  useEffect(() => {
+    const fetchHeroData = async () => {
+      try {
+        const data = await client.fetch(
+          `*[_type == "hero"][0]{
+            name,
+            title,
+            location,
+            email,
+            phone,
+            profileImage,
+            backgroundImage,
+            linkedin,
+            github
+          }`
+        );
+        setHeroData(data);
+      } catch (error) {
+        console.error("Error fetching hero data:", error);
+      }
+    };
+
+    fetchHeroData();
+  }, []);
+
+  if (!heroData) return <div>Loading...</div>;
+
   return (
-    <>
-      <div className="relative w-full h-[80vh] flex bg-primary">
-        <div className="relative w-3/4 h-full bg-[url('/crew-4Hg8LH9Hoxc-unsplash.jpg')] bg-cover bg-fixed bg-bottom">
-          <div className="absolute inset-0 bg-black/35">
-            <div className="relative z-10 flex flex-col items-start justify-center gap-2 w-378  px-82 pt-104 text-colorText">
-              <p className="font-karla text-3xl tracking-widest mb-1">
-                HELLO, I&apos;M
-              </p>
-              <p className="font-yeseva text-8xl mb-1 tracking-wide">
-                Rebecka Larsson
-              </p>
-              <p className="font-alice italic text-xl tracking-wider">
-                Junior Developer in Javascript
-              </p>
-            </div>
+    <div className="relative w-full h-[80vh] flex bg-primary">
+      {/* Bakgrundsbild */}
+      <div
+        className="relative w-full md:w-3/4 h-full bg-cover bg-fixed bg-bottom"
+        style={{
+          backgroundImage: `url(${
+            heroData.backgroundImage
+              ? builder.image(heroData.backgroundImage).url()
+              : "/default-bg.jpg"
+          })`,
+        }}
+      >
+        <div className="absolute inset-0 bg-black/35">
+          <div
+            className="relative z-10 flex flex-col items-start justify-end gap-2 w-full md:w-1/2 text-colorText"
+            style={{
+              left: "220px", // Flyttar texten 20px från vänster
+              top: "420px", // Flyttar texten 20px från botten
+            }}
+          >
+            <p className="font-karla text-3xl md:text-4xl tracking-widest mb-1">
+              HELLO, I&apos;M
+            </p>
+            <p className="font-yeseva text-6xl md:text-8xl tracking-wide mb-1 whitespace-nowrap">
+              {heroData.name}
+            </p>
+            <p className="font-alice italic text-xl md:text-2xl tracking-wider whitespace-nowrap">
+              {heroData.title}
+            </p>
           </div>
         </div>
-
-        <aside
-          className="w-1/4 h-full grid grid-rows-[auto,auto,auto,auto,auto,1fr] gap-4 p-5 text-colorText tr"
-          style={{ backgroundColor: "rgb(7, 54, 48)" }}
-        >
-          <div className="w-50 h-50 rounded-full overflow-hidden mx-auto">
-            <img
-              className="w-full h-full object-cover object-[0%_20%]"
-              src={profile_pic}
-              alt="profile_picture"
-            />
-          </div>
-          <h1 className="font-yeseva text-4xl text-center">Rebecka Larsson</h1>
-
-          <h2 className="font-karla text-xl tracking-wide text-center">
-            Junior Developer <br /> Umeå, Sweden
-          </h2>
-
-          <div className="text-center text-base">
-            <p className="font-karla ">my@mail.se</p>
-            <p className="font-karla text-base">073-1234567</p>
-          </div>
-
-          <div className="text-center flex justify-center gap-4">
-            <img className="w-10 h-10" src={gitHub_icon} alt="gitHub_icon" />
-            <img
-              className="w-10 h-10 bg-transparent"
-              src={linkedIn_icon}
-              alt="linkedIn_icon"
-            />
-          </div>
-
-          <div className="text-center">
-            <button className=" w-48 bg-colorText tracking-wide text-colorText2 font-karla text-xl py-3 px-9 hover:cursor-pointer hover:bg-secondary hover:transition-colors duration-300 ease-in-out">
-              contact me
-            </button>
-          </div>
-        </aside>
       </div>
-    </>
+
+      {/* Sidopanel */}
+      <Sidebar heroData={heroData} />
+    </div>
   );
 };
 

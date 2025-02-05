@@ -45,7 +45,7 @@ const Navbar = () => {
           duration={1300}
           className="font-alice hover:cursor-pointer hover:text-secondary transition-colors duration-100 ease-in-out"
         >
-          Interests
+          Future Ambitions & Interests
         </Link>
       </div>
     </nav>
