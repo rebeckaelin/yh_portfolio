@@ -7,17 +7,14 @@ import { Projects } from "../components/Projects";
 import Skills from "../components/Skills";
 import Interests from "../components/Interests";
 import Footer from "../components/Footer";
-import Future from "../components/Future";
 
 const MainPage = () => {
   return (
     <>
       <div className="">
-        <div className="bg-primary">
-          <Navbar />
-        </div>
+        <Navbar />
 
-        <Hero />
+        {/* <Hero />
 
         <About />
 
@@ -29,7 +26,7 @@ const MainPage = () => {
 
         <Interests />
 
-        <Footer />
+        <Footer /> */}
       </div>
     </>
   );

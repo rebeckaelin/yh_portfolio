@@ -70,7 +70,7 @@ Sidebar.propTypes = {
     location: PropTypes.string,
     email: PropTypes.string,
     phone: PropTypes.string,
-    profileImage: PropTypes.object, // Sanity-bild är ett objekt
+    profileImage: PropTypes.object,
     github: PropTypes.string,
     linkedin: PropTypes.string,
   }),

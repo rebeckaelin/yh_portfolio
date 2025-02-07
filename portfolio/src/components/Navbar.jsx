@@ -1,53 +1,17 @@
-import { Link } from "react-scroll";
+import DesktopNavbar from "./DesktopNavbar";
+import MobileNavbar from "./MobileNavbar";
 
 const Navbar = () => {
   return (
-    <nav className={"bg-primary text-colorText h-25 grid grid-cols-8"}>
-      <div
-        id="navbar"
-        className="col-start-3 col-span-8 flex gap-16 items-center h-full tracking-wide text-lg italic"
-      >
-        <Link
-          to="about-article" // ID på sektionen du vill scrolla till
-          smooth={true}
-          duration={1300} // Hur lång tid scrollen tar (i ms)
-          className="font-alice hover:cursor-pointer hover:text-secondary transition-colors duration-100 ease-in-out"
-        >
-          About
-        </Link>
-        <Link
-          to="education-section"
-          smooth={true}
-          duration={1300}
-          className="font-alice hover:cursor-pointer hover:text-secondary transition-colors duration-100 ease-in-out"
-        >
-          Education & Experience
-        </Link>
-        <Link
-          to="projects-section"
-          smooth={true}
-          duration={1300}
-          className="font-alice hover:cursor-pointer hover:text-secondary transition-colors duration-100 ease-in-out"
-        >
-          Projects
-        </Link>
-        <Link
-          to="skills-section"
-          smooth={true}
-          duration={1300}
-          className="font-alice hover:cursor-pointer hover:text-secondary transition-colors duration-100 ease-in-out"
-        >
-          Skills & Languages
-        </Link>
-        <Link
-          to="interests-section"
-          smooth={true}
-          duration={1300}
-          className="font-alice hover:cursor-pointer hover:text-secondary transition-colors duration-100 ease-in-out"
-        >
-          Future Ambitions & Interests
-        </Link>
-      </div>
+    <nav className="bg-primary text-colorText h-25 flex justify-between items-center">
+      {/* Ditt namn - endast synligt på mobilversionen */}
+      <h1 className="text-2xl font-yeseva pl-5 block md:hidden">
+        Rebecka Larsson.
+      </h1>
+
+      {/* Desktop och Mobile Navbar */}
+      <DesktopNavbar />
+      <MobileNavbar />
     </nav>
   );
 };

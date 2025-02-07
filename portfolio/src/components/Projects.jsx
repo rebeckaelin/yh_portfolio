@@ -1,54 +1,32 @@
-import { useState } from "react";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
+import client from "../client"; // Importera din Sanity-klient
+import imageUrlBuilder from "@sanity/image-url";
+
+const builder = imageUrlBuilder(client);
+function urlFor(source) {
+  return builder.image(source).url();
+}
 
 export const Projects = () => {
-  // Håller koll på om modalen är öppen eller stängd
+  const [projects, setProjects] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalContent, setModalContent] = useState({});
 
-  // Data för projekten (detta skulle normalt komma från en API eller en fil)
-  const projects = [
-    {
-      title: "Project One",
-      imageUrl: "/florian-olivo-4hbJ-eymZ1o-unsplash.jpg",
-      description: "A brief description of Project One",
-      techUsed: ["JavaScript", "React", "Node.js"],
-      moreInfo: "Detailed description about Project One...",
-      readMore: "Read More..",
-    },
-    {
-      title: "Project Two",
-      imageUrl: "/florian-olivo-4hbJ-eymZ1o-unsplash.jpg",
-      description: "A brief description of Project Two",
-      techUsed: ["HTML", "CSS", "Vue.js"],
-      moreInfo: "Detailed description about Project Two...",
-      readMore: "Read More..",
-    },
-    {
-      title: "Project Three",
-      imageUrl: "/florian-olivo-4hbJ-eymZ1o-unsplash.jpg",
-      description: "A brief description of Project Two",
-      techUsed: ["HTML", "CSS", "Vue.js"],
-      moreInfo: "Detailed description about Project Two...",
-      readMore: "Read More..",
-    },
-    {
-      title: "Project Four",
-      imageUrl: "/florian-olivo-4hbJ-eymZ1o-unsplash.jpg",
-      description: "A brief description of Project Two",
-      techUsed: ["HTML", "CSS", "Vue.js"],
-      moreInfo: "Detailed description about Project Two...",
-      readMore: "Read More..",
-    },
-    {
-      title: "Project Five",
-      imageUrl: "/florian-olivo-4hbJ-eymZ1o-unsplash.jpg",
-      description: "A brief description of Project Two",
-      techUsed: ["HTML", "CSS", "Vue.js"],
-      moreInfo: "Detailed description about Project Two...",
-      readMore: "Read More..",
-    },
-  ];
+  // Hämta data från Sanity
+  useEffect(() => {
+    const fetchProjects = async () => {
+      try {
+        const data = await client.fetch(
+          `*[_type == "project"]| order(_createdAt asc){title, image, description, techUsed, moreInfo} `
+        );
+        setProjects(data);
+      } catch (error) {
+        console.error("Error fetching projects:", error);
+      }
+    };
+
+    fetchProjects();
+  }, []);
 
   // Funktion för att öppna modal och sätta modalens innehåll
   const openModal = (project) => {
@@ -73,9 +51,9 @@ export const Projects = () => {
   return (
     <div
       id="projects-section"
-      className="bg-colorText grid grid-cols-8  pb-18 pt-18"
+      className="bg-colorText grid grid-cols-12 pb-18 pt-18"
     >
-      <section className="col-start-3 col-span-6">
+      <section className="col-start-4 col-span-7">
         <div>
           <h2 className="font-alice text-4xl italic font-bold tracking-wide text-primary">
             Projects
@@ -85,8 +63,8 @@ export const Projects = () => {
           </h3>
         </div>
 
-        {/* Galleri med projekten */}
-        <div className="grid grid-cols-2 gap-x-24 gap-y-22 mt-8 w-3/4">
+        {/* Galleri med projekten, ändrat till 3 kolumner */}
+        <div className="grid grid-cols-3 gap-x-12 gap-y-12 mt-8">
           {projects.map((project, index) => (
             <div
               key={index}
@@ -94,13 +72,17 @@ export const Projects = () => {
               onClick={() => openModal(project)}
             >
               <img
-                src={project.imageUrl}
+                src={urlFor(project.image)}
                 alt={project.title}
-                className="w-full h-full object-contain rounded-lg"
+                className="w-full h-64 object-cover rounded-lg"
               />
-              <p className="text-center font-karla pt-5">{project.title}</p>
+              <p className="text-center font-karla pt-3">{project.title}</p>
+              <p className="text-center font-karla pt-3">
+                {project.description}
+              </p>
+
               {/* Bakgrundseffekt och textoverlay */}
-              <div className="absolute top-0 left-0 h-full w-full flex items-center justify-center rounded-lg  transition-all duration-100">
+              <div className="absolute top-0 left-0 h-full w-full flex items-center justify-center rounded-lg transition-all duration-100">
                 <p className="text-xl font-karla text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   {project.readMore}
                 </p>
@@ -111,24 +93,31 @@ export const Projects = () => {
 
         {/* Modal */}
         {isModalOpen && (
-          <div className="fixed inset-0 backdrop-blur-xs bg-black/40 flex justify-center items-center z-50">
-            <div className="bg-white p-8 rounded-lg max-w-lg w-full border">
-              <h3 className="text-2xl font-bold">{modalContent.title}</h3>
-              <p className="mt-4">{modalContent.moreInfo}</p>
+          <div className=" font-karla fixed inset-0 backdrop-blur-xs bg-black/40 flex justify-center items-center z-50 ">
+            <div className="bg-colorText p-10 max-w-lg w-full ">
+              <h3 className="text-2xl font-bold font-alice">
+                {modalContent.title}
+              </h3>
+              <p className="mt-4 ">{modalContent.moreInfo}</p>
               <div className="mt-4">
-                <p className="font-semibold">Technologies used:</p>
-                <ul className="list-disc pl-6">
-                  {modalContent.techUsed.map((tech, index) => (
-                    <li key={index}>{tech}</li>
-                  ))}
+                <p className="text-lg font-semibold">Built with:</p>
+                <ul className="list-none flex flex-wrap gap-x-10 gap-y-2">
+                  {modalContent.techUsed &&
+                    modalContent.techUsed.map((tech, index) => (
+                      <li className="pt-2" key={index}>
+                        {tech}
+                      </li>
+                    ))}
                 </ul>
               </div>
-              <button
-                className="mt-6 bg-primary text-white px-4 py-2 rounded-full"
-                onClick={closeModal}
-              >
-                Close
-              </button>
+              <div className="pt-10 flex justify-center ">
+                <button
+                  onClick={closeModal}
+                  className="w-48 bg-primary border-2 border-transparent tracking-wide text-colorText font-karla text-xl py-3 px-9 hover:cursor-pointer hover:border-primary hover:font-semibold hover:bg-colorText hover:text-primary hover:transition-colors duration-200 ease-in-out"
+                >
+                  Close
+                </button>
+              </div>
             </div>
           </div>
         )}
