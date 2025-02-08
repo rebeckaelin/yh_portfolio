@@ -12,18 +12,38 @@ const MobileNavbar = () => {
         onClick={() => setIsOpen(!isOpen)}
         className="md:hidden pr-10 relative w-8 h-8 flex flex-col justify-center items-center z-50"
       >
+        {/* Översta linjen */}
         <motion.div
-          animate={{ rotate: isOpen ? 45 : 0, y: isOpen ? 4 : 0 }}
-          className="bg-colorText w-6 h-0.5 rounded origin-center transition-all duration-300"
+          animate={{
+            rotate: isOpen ? 45 : 0,
+            y: isOpen ? 4 : 0,
+            opacity: isOpen ? 1 : 1, // Alltid synlig när den återgår
+          }}
+          transition={{ duration: 0.2, ease: "easeInOut" }}
+          className="bg-light w-6 h-0.5 rounded origin-center"
         />
+
+        {/* Mitten-linjen */}
         <motion.div
-          animate={{ opacity: isOpen ? 0 : 1 }}
-          transition={{ duration: 0.2, delay: isOpen ? 0 : 0.4 }} // Längre fördröjning vid stängning
-          className="bg-colorText w-6 h-0.5 rounded transition-opacity duration-200 my-0.5"
+          animate={{
+            opacity: isOpen ? 0 : 1, // Fadeas ut när X:et skapas, fadeas in vid återgång
+          }}
+          transition={{
+            duration: 0.1,
+            delay: isOpen ? 0 : 0.2, // Fördröjd fade-in när hamburgaren kommer tillbaka
+          }}
+          className="bg-light w-6 h-0.5 rounded transition-opacity my-0.5"
         />
+
+        {/* Nedersta linjen */}
         <motion.div
-          animate={{ rotate: isOpen ? -45 : 0, y: isOpen ? -4 : 0 }}
-          className="bg-colorText w-6 h-0.5 rounded origin-center transition-all duration-300"
+          animate={{
+            rotate: isOpen ? -45 : 0,
+            y: isOpen ? -4 : 0,
+            opacity: isOpen ? 1 : 1, // Alltid synlig vid återgång
+          }}
+          transition={{ duration: 0.2, ease: "easeInOut" }}
+          className="bg-light w-6 h-0.5 rounded origin-center"
         />
       </button>
 
@@ -36,10 +56,10 @@ const MobileNavbar = () => {
             animate={{ x: 0, opacity: 1 }}
             exit={{ x: "100%", opacity: 0 }}
             transition={{ duration: 0.5, ease: "easeInOut" }}
-            className="fixed inset-0 bg-primary text-colorText flex flex-col items-center z-40"
+            className="fixed inset-0 bg-primary text-light flex flex-col items-center z-40"
           >
             {/* Navigeringslänkar */}
-            <nav className="flex flex-col text-lg italic items-center mt-40 gap-3">
+            <nav className="flex flex-col text-lg items-center mt-40 gap-3">
               {[
                 { to: "about-article", label: "About" },
                 { to: "education-section", label: "Education & Experience" },
@@ -56,7 +76,7 @@ const MobileNavbar = () => {
                   smooth={true}
                   duration={1300}
                   onClick={() => setIsOpen(false)}
-                  className="font-alice hover:text-secondary transition-colors duration-300 ease-in-out"
+                  className="font-karla hover:text-secondary transition-colors duration-300 ease-in-out"
                 >
                   {label}
                 </Link>

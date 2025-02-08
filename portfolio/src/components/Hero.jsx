@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
+import PropTypes from "prop-types";
 import client from "../client";
 import imageUrlBuilder from "@sanity/image-url";
-import Sidebar from "./Sidebar.jsx"; // Importera Sidebar
+import DesktopHero from "./DesktopHero";
+import MobileHero from "./MobileHero";
 
 const builder = imageUrlBuilder(client);
 
@@ -36,43 +38,26 @@ const Hero = () => {
   if (!heroData) return <div>Loading...</div>;
 
   return (
-    <div className="relative w-full h-[80vh] flex bg-primary">
-      {/* Bakgrundsbild */}
-      <div
-        className="relative w-full md:w-3/4 h-full bg-cover bg-fixed bg-bottom"
-        style={{
-          backgroundImage: `url(${
-            heroData.backgroundImage
-              ? builder.image(heroData.backgroundImage).url()
-              : "/default-bg.jpg"
-          })`,
-        }}
-      >
-        <div className="absolute inset-0 bg-black/35">
-          <div
-            className="relative z-10 flex flex-col items-start justify-end gap-2 w-full md:w-1/2 text-colorText"
-            style={{
-              left: "220px", // Flyttar texten 20px från vänster
-              top: "420px", // Flyttar texten 20px från botten
-            }}
-          >
-            <p className="font-karla text-3xl md:text-4xl tracking-widest mb-1">
-              HELLO, I&apos;M
-            </p>
-            <p className="font-yeseva text-6xl md:text-8xl tracking-wide mb-1 whitespace-nowrap">
-              {heroData.name}
-            </p>
-            <p className="font-alice italic text-xl md:text-2xl tracking-wider whitespace-nowrap">
-              {heroData.title}
-            </p>
-          </div>
-        </div>
+    <div>
+      {/* Visa MobileHero endast på mobil (sm) */}
+      <div className="block md:hidden w-full">
+        <MobileHero heroData={heroData} builder={builder} />
       </div>
 
-      {/* Sidopanel */}
-      <Sidebar heroData={heroData} />
+      {/* Visa DesktopHero endast på desktop (md och uppåt) */}
+      <div className="hidden md:block">
+        <DesktopHero heroData={heroData} builder={builder} />
+      </div>
     </div>
   );
+};
+
+Hero.propTypes = {
+  heroData: PropTypes.shape({
+    name: PropTypes.string,
+    title: PropTypes.string,
+    backgroundImage: PropTypes.object,
+  }),
 };
 
 export default Hero;

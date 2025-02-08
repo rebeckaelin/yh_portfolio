@@ -3,7 +3,7 @@ import MobileNavbar from "./MobileNavbar";
 
 const Navbar = () => {
   return (
-    <nav className="bg-primary text-colorText h-25 flex justify-between items-center">
+    <nav className="bg-primary text-light h-18 flex justify-between items-center">
       {/* Ditt namn - endast synligt på mobilversionen */}
       <h1 className="text-2xl font-yeseva pl-5 block md:hidden">
         Rebecka Larsson.

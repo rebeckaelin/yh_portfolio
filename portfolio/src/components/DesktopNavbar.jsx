@@ -9,7 +9,7 @@ const DesktopNavbar = () => {
       <div className="grid grid-cols-8">
         <div
           id="navbar"
-          className="col-start-3 col-span-8 w-full flex gap-15 text-base italic"
+          className="col-start-3 col-span-8 w-full flex gap-12 text-base italic"
         >
           <Link
             to="about-article" // ID på sektionen du vill scrolla till

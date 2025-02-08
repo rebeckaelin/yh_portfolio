@@ -11,22 +11,22 @@ import Footer from "../components/Footer";
 const MainPage = () => {
   return (
     <>
-      <div className="">
+      <div className=" w-full h-1000">
         <Navbar />
 
-        {/* <Hero />
+        <Hero />
 
         <About />
 
-        <EduAndExp />
+        {/* <EduAndExp /> */}
 
-        <Projects />
+        {/* <Projects /> */}
 
-        <Skills />
+        {/* <Skills /> */}
 
-        <Interests />
+        {/* <Interests /> */}
 
-        <Footer /> */}
+        {/* <Footer /> */}
       </div>
     </>
   );
