@@ -24,16 +24,16 @@ const About = () => {
     <>
       <div
         id="about-article"
-        className="h-full pb-18 pt-18 bg-secondary grid grid-cols-4"
+        className="sm:w-full pb-18 pt-18 bg-secondary lg:grid grid-cols-4 px-6 sm:px-8 lg:px-0"
       >
-        <article className="w-3/4 col-span-4 col-start-2">
-          <h2 className="font-alice text-4xl italic font-bold tracking-wide text-primary">
+        <article className="w-full lg:w-3/4 col-span-4 col-start-2">
+          <h2 className="font-alice text-2xl sm:text-2xl lg:text-4xl italic font-bold tracking-wide text-primary">
             {aboutData.title}
           </h2>
-          <h3 className="font-karla text-2xl mt-2 tracking-wider text-primary">
+          <h3 className="font-karla text-xl sm:text-xl lg:text-2xl mt-2 tracking-wider text-primary">
             {aboutData.subtitle}
           </h3>
-          <p className="font-karla mt-10 text-xl leading-loose">
+          <p className="font-karla mt-10 text-base sm:text-lg lg:text-xl leading-loose">
             {aboutData.description}
           </p>
         </article>
@@ -43,3 +43,9 @@ const About = () => {
 };
 
 export default About;
+
+{
+  /* <div className="sm:bg-red-500 md:bg-green-500 lg:bg-blue-500 pl-8">
+  Test
+</div> */
+}

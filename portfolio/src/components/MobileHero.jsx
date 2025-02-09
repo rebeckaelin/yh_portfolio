@@ -59,7 +59,7 @@ const HeroMobile = ({ heroData, builder }) => {
             </a>
           </div>
           <div className="text-center pt-2">
-            <button className="bg-light h-10 px-3 tracking-wide border-2 text-dark font-karla text-lg hover:cursor-pointer hover:bg-primary hover:border-2 hover:text-light hover:transition-colors duration-200 ease-in-out">
+            <button className="bg-light h-10 px-3 tracking-wide border-2 text-dark font-karla text-lg hover:cursor-pointer hover:bg-primary hover:border-2 hover:text-light hover:transition-colors duration-200 ease-in-out ">
               contact me
             </button>
           </div>
