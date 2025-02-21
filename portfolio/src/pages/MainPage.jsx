@@ -1,34 +1,23 @@
-import Navbar from "../components/Navbar";
-
-import Hero from "../components/Hero";
-import About from "../components/About";
-import EduAndExp from "../components/EduAndExp";
-import { Projects } from "../components/Projects";
-import Skills from "../components/Skills";
-import Interests from "../components/Interests";
-import Footer from "../components/Footer";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import NewHeader from "../components/NewHeader";
+import Home from "../components/Home";
+import NewFooter from "../components/NewFooter";
+import AboutPage from "./AboutPage";
+import ProjectPage from "./ProjectPage";
+import ContactPage from "./ContactPage";
 
 const MainPage = () => {
   return (
-    <>
-      <div className=" w-full h-1000">
-        <Navbar />
-
-        <Hero />
-
-        <About />
-
-        {/* <EduAndExp /> */}
-
-        {/* <Projects /> */}
-
-        {/* <Skills /> */}
-
-        {/* <Interests /> */}
-
-        {/* <Footer /> */}
-      </div>
-    </>
+    <Router>
+      <NewHeader />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/projects" element={<ProjectPage />} />
+        <Route path="/contact" element={<ContactPage />} />
+      </Routes>
+      <NewFooter />
+    </Router>
   );
 };
 

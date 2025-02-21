@@ -1,22 +1,14 @@
 @import "tailwindcss";
 
 @theme {
+  --color-secondary: #aababa;
+  --color-accent: #3c4d49;
+  --color-accent2: #c58940;
+
+  --font-main: "Lora", "serif";
+  --font-second: "Open Sans", "sans-serif";
   --color-light: rgb(249, 248, 246);
   --color-dark: rgb(75, 71, 68);
-  --color-primary: rgb(7, 54, 48);
-  --color-secondary: rgb(238, 225, 216);
-  --color-accent: rgb(219, 199, 174);
-
-  --font-yeseva: "Yeseva One", "sans-serif";
-  --font-alice: "Alice", "sans-serif";
-  --font-karla: "Karla", "sans-serif";
-
-  /* --font-montserrat: "Montserrat", "sans-serif";
-  --font-playfair: "Playfair Display", "sans-serif";
-  --font-josefin: "Josefin Sans", "sans-serif";
-  --color-background2: rgb(234, 230, 227);
-  --color-primary2: rgb(177, 175, 176);
-  --color-accent2: rgb(184, 145, 110); */
 }
 
 /* * {
