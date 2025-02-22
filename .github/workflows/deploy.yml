@@ -3,33 +3,51 @@ name: Deploy dev meetup
 on:
   push:
     branches:
-      - dev # Trigger när något pushes till dev-branchen
+      - dev
 
 env:
-  SOURCE_DIR: "portfolio/dist" # Byggmappens väg
-  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Token för att autentisera actions
+  SOURCE_DIR: "portfolio/dist"
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
 
 jobs:
   build:
-    runs-on: ubuntu-latest # Körs på en Ubuntu-maskin
+    runs-on: ubuntu-latest
 
     steps:
-      # Steg 1: Checkout din kod
       - uses: actions/checkout@v4
 
-      # Steg 2: Installera beroenden för din app
       - name: Install dependencies
         run: cd portfolio && npm install
 
-      # Steg 3: Bygg applikationen
       - name: Build dist
-        run: cd portfolio && npm run build # Eller använd rätt kommando om du har en annan struktur
+        run: cd portfolio && npm run build
 
-      # Steg 4: Deploy till GitHub Pages (push till gh-pages-branch)
+      - name: Check if build folder exists
+        run: ls -al portfolio/dist
+
+      - name: Configure Git
+        run: |
+          git config --global user.name "Rebecka Larsson"
+          git config --global user.email "rebeckaelin@example.com"
+
+      - name: Checkout gh-pages branch or create orphan if not exists
+        run: |
+          git fetch --all
+          if git show-ref --verify --quiet refs/heads/gh-pages; then
+            git checkout gh-pages
+          else
+            git checkout --orphan gh-pages  # Skapar en "orphan" gh-pages branch om den inte finns
+          fi
+
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          branch: gh-pages # GitHub Pages använder gh-pages-branch
-          folder: portfolio/dist # Mappen som innehåller de byggda filerna
+          branch: gh-pages
+          folder: portfolio/dist
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Använd GitHub Token för autentisering
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
