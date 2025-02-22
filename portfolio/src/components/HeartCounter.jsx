@@ -26,7 +26,6 @@ const HeartCounter = () => {
 
     try {
       await updateDoc(docRef, { count: count + 1 });
-      console.log("Uppdaterat Firestore med: ", count + 1);
       setCount(count + 1);
       toast.success(`💖 ${count + 1} likes!`);
     } catch (error) {
