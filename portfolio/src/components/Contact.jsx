@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 const Contact = () => {
   return (
     <>
-      <section className="mt-5 md:mt-15 flex flex-col  items-center h-[100vh]">
+      <section className="mt-5 md:mt-15 flex flex-col  items-center">
         <div className="w-4/5 max-w-3xl ">
           <motion.h1
             className="text-black text-center font-main tracking-widest text-[22px] sm:text-3xl md:text-4xl lg:text-6xl lowercase"

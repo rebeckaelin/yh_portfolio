@@ -11,9 +11,8 @@ const RecentWork = () => {
 
   const displayedProjects = projects.slice(-4);
 
-  // Animationsvarianter
   const containerVariants = {
-    hidden: { opacity: 0, y: 50 }, // Startposition (50px nedanför och osynlig)
+    hidden: { opacity: 0, y: 50 },
     visible: {
       opacity: 1,
       y: 0,
@@ -32,7 +31,7 @@ const RecentWork = () => {
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, amount: 0.2 }} // Triggar när 20% av komponenten syns
+        viewport={{ once: true, amount: 0.2 }}
       >
         <div className="flex justify-center pb-10 w-4/5 mx-auto">
           <div

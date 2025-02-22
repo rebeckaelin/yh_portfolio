@@ -5,7 +5,7 @@ import imageUrlBuilder from "@sanity/image-url";
 const builder = imageUrlBuilder(client);
 
 function urlFor(source) {
-  return builder.image(source); // Returns an image builder instance
+  return builder.image(source);
 }
 
 const useProjects = () => {

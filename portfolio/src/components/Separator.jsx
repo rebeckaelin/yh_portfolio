@@ -4,18 +4,17 @@ import { motion } from "framer-motion";
 const Separator = () => {
   const navigate = useNavigate();
 
-  // Animation för linjerna när de blir synliga
   const lineVariants = {
-    hidden: { width: "2.5rem" }, // Startbredd
-    visible: { width: "4rem", transition: { duration: 1.2, delay: 0.7 } }, // Bredd när synlig
+    hidden: { width: "2.5rem" },
+    visible: { width: "4rem", transition: { duration: 1.2, delay: 0.7 } },
   };
 
   return (
     <motion.div
       className=" mt-5 mb-15 py-10 md:mt-15 md:py-20 flex flex-col items-center justify-center"
-      initial="hidden" // Startvärde för animationen
-      whileInView="visible" // Trigga när komponenten är i vyn
-      viewport={{ once: true, amount: 0.5 }} // Animationen triggas när 50% av komponenten är synlig
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.5 }}
     >
       <p className="sm:text-xl md:text-2xl font-main font-light tracking-wider lowercase whitespace-pre-line text-center">
         Let&apos;s merge our efforts!
@@ -27,15 +26,13 @@ const Separator = () => {
           navigate("/contact");
         }}
       >
-        {/* Vänster linje */}
         <motion.span
           className="absolute left-0 top-1/2 transform -translate-y-1/2 h-0.5 bg-black"
           variants={lineVariants}
           initial="hidden"
-          whileInView="visible" // Här använder vi lineVariants för att animera
+          whileInView="visible"
         ></motion.span>
 
-        {/* Pil */}
         <motion.span
           initial="hidden"
           whileInView="visible"
@@ -44,7 +41,6 @@ const Separator = () => {
           →
         </motion.span>
 
-        {/* Höger linje */}
         <motion.span
           className="absolute right-0 top-1/2 transform -translate-y-1/2 h-0.5 bg-black"
           variants={lineVariants}

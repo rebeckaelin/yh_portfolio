@@ -19,7 +19,6 @@ const NewAbout = () => {
   return (
     <>
       <section className="flex lg:flex-row flex-col mt-10 xl:mb-20 ">
-        {/* Bild-container */}
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
