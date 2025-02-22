@@ -87,6 +87,8 @@ const NewHero = () => {
 
 export default NewHero;
 
+// ALTERNATIVE STYLING FOR HERO IMG
+
 //  <section className="relative flex w-full flex-col md:flex-row items-center ">
 //    {/* Bild-container */}
 //    <div className="w-full md:w-2/4 flex-none flex-shrink-0">
