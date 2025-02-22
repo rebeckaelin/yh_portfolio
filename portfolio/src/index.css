@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 @theme {
+  --color-primary: #3c4d49;
   --color-secondary: #aababa;
-  --color-accent: #3c4d49;
   --color-accent2: #c58940;
 
   --font-main: "Lora", "serif";

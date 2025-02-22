@@ -6,7 +6,7 @@ import linkedIn_icon_white from "/linkedin_logo_white.png";
 
 const NewFooter = () => {
   return (
-    <footer className="flex justify-center bg-accent w-full">
+    <footer className="flex justify-center bg-primary w-full">
       <div className=" flex flex-col justify-around md:flex-row md:justify-between items-center h-40 w-full p-6 sm:p-0 sm:w-3/4  ">
         <div>
           <Link

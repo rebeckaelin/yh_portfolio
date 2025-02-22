@@ -1,4 +1,4 @@
-import mountain from "../../public/mountains.png";
+import mountain from "/mountains.png";
 
 import { motion } from "framer-motion";
 

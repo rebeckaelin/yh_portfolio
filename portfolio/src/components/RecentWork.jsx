@@ -65,7 +65,7 @@ const RecentWork = () => {
 
                   return (
                     <motion.div
-                      key={project._id}
+                      key={index}
                       className={`relative group ${
                         displayedProjects.length === 1
                           ? "col-span-1 row-span-1"
