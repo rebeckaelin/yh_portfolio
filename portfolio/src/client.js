@@ -6,6 +6,7 @@ const client = createClient({
   dataset: "production",
   useCdn: true,
   apiVersion: "2025-01-30",
+  token: import.meta.env.VITE_REACT_APP_PROJECT_API_TOKEN,
 });
 
 const builder = imageUrlBuilder(client);

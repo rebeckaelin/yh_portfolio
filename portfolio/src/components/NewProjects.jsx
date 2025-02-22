@@ -64,7 +64,7 @@ const NewProjects = () => {
               </div>
             </div>
 
-            <p className="font-second font-extralight lowercase text-sm mt-2 w-full">
+            <p className="font-second font-semibold lowercase text-base w-full ">
               {project.description}
             </p>
 
@@ -82,7 +82,8 @@ const NewProjects = () => {
             >
               {expandedProjectIndex === index && (
                 <div className="mt-4">
-                  <p className="font-second text-sm lg:text-base font-extralight whitespace-pre-line mb-3">
+                  <hr />
+                  <p className="font-second text-sm lg:text-base font-extralight mt-5 whitespace-pre-line mb-3">
                     {project.moreInfo}
                   </p>
                   <p className="text-lg font-second lowercase tracking-wider font-extralight">
