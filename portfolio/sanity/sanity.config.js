@@ -7,8 +7,8 @@ export default defineConfig({
   name: 'default',
   title: 'portfolio',
 
-  projectId: 'be0n09rx',
-  dataset: 'production',
+  projectId: import.meta.env.VITE_SANITY_PROJECT_ID,
+  dataset: import.meta.env.VITE_SANITY_DATASET,
 
   plugins: [structureTool(), visionTool()],
 
