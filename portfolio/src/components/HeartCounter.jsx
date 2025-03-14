@@ -14,7 +14,7 @@ const HeartCounter = () => {
       if (docSnap.exists()) {
         setCount(docSnap.data().count);
       } else {
-        await setDoc(docRef, { count: 0 }); // Skapa dokumentet om det inte finns
+        await setDoc(docRef, { count: 0 });
       }
     };
 

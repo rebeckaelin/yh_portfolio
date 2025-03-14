@@ -1,6 +1,8 @@
 import useEducation from "../hooks/useEducation";
 import useExperience from "../hooks/useExperience";
 
+//component not in use
+
 const NewEduExp = () => {
   const educationData = useEducation();
   const experienceData = useExperience();
@@ -12,7 +14,7 @@ const NewEduExp = () => {
     <>
       <section className="my-15 flex flex-col md:flex-row justify-around max-w-7xl mx-auto">
         <div className=" flex flex-col gap-5 text-center md:text-left">
-          <h2 className=" text-xl xl:text-2xl md:text-2xl font-main font-light tracking-widest whitespace-pre-line  lowercase">
+          <h2 className=" text-xl xl:text-2xl md:text-2xl font-main font-light tracking-widest whitespace-pre-line lowercase">
             experience
           </h2>
           {experienceData.map((experience, index) => (

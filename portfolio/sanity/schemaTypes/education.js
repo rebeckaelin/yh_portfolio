@@ -29,18 +29,4 @@ export default defineType({
       type: 'string',
     }),
   ],
-
-  preview: {
-    select: {
-      title: 'title',
-      school: 'school',
-    },
-    prepare(selection) {
-      const {school} = selection
-      return {
-        ...selection,
-        subtitle: school ? `at ${school}` : '',
-      }
-    },
-  },
 })
