@@ -26,11 +26,3 @@ The project is built with the following technologies:
 ## Content Management
 
 Content for projects and other sections is managed through the Sanity Studio, allowing for easy updates and additions to the portfolio without changing code.
-
-## License
-
-[MIT](LICENSE)
-
-## Contact 📫
-
-Rebecka Elin - [Your Contact Information]
