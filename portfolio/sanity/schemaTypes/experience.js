@@ -30,18 +30,4 @@ export default defineType({
       description: 'Ex: 2019-2022, 6 months',
     }),
   ],
-
-  preview: {
-    select: {
-      title: 'company',
-      subtitle: 'position',
-    },
-    prepare(selection) {
-      const {title, subtitle} = selection
-      return {
-        ...selection,
-        subtitle: subtitle ? `${subtitle} at ${title}` : title,
-      }
-    },
-  },
 })

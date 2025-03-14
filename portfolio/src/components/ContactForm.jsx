@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+//component not in use
+
 const ContactForm = () => {
   const [isDisabled, setIsDisabled] = useState(true);
   const [formData, setFormData] = useState({
@@ -90,7 +92,7 @@ const ContactForm = () => {
               type="submit"
               disabled={isDisabled}
               className={`py-2 px-4 ${
-                isDisabled ? "bg-gray-400 cursor-not-allowed" : "bg-accent2"
+                isDisabled ? "bg-gray-400 cursor-not-allowed" : "bg-accent"
               }`}
             >
               send message

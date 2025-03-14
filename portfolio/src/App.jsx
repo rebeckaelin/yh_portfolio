@@ -5,6 +5,7 @@ import NewFooter from "./components/NewFooter";
 import AboutPage from "./pages/AboutPage.jsx";
 import ProjectPage from "./pages/ProjectPage";
 import ContactPage from "./pages/ContactPage";
+import ProjectDetail from "./components/ProjectDetail.jsx";
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
             <Route path="/" element={<MainPage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/projects" element={<ProjectPage />} />
+            <Route path="/projects/:slug" element={<ProjectDetail />} />
             <Route path="/contact" element={<ContactPage />} />
           </Routes>
         </main>

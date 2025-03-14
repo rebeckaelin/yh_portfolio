@@ -4,15 +4,15 @@ const NewHeader = () => {
   const navigate = useNavigate();
 
   return (
-    <header className="flex justify-center ">
+    <header>
       <div
         id="header"
-        className="flex justify-between items-center h-20 w-full p-6 sm:p-0 sm:w-3/4  "
+        className="flex justify-between items-center h-20 px-8 w-full "
       >
         <div>
           <button
             onClick={() => navigate("/")}
-            className="font-main font-semibold tracking-wider md:text-5xl text-3xl hover:cursor-pointer hover:text-dark"
+            className="font-main font-semibold tracking-wider text-5xl  hover:cursor-pointer hover:text-dark"
           >
             rl.
           </button>

@@ -1,16 +1,8 @@
 import { motion } from "framer-motion";
 import useAbout from "../hooks/useAbout";
-import imageUrlBuilder from "@sanity/image-url";
-import client from "../client";
-
-const builder = imageUrlBuilder(client);
-
-function urlFor(source) {
-  return builder.image(source);
-}
 
 const NewAbout = () => {
-  const { aboutData, loading, error } = useAbout();
+  const { aboutData, loading, error, urlFor } = useAbout();
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error fetching data: {error.message}</div>;

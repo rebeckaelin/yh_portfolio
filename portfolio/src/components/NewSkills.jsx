@@ -1,6 +1,8 @@
 import useSkills from "../hooks/useSkills";
 import { motion } from "framer-motion";
 
+//component not in use
+
 const NewSkills = () => {
   const skillsData = useSkills();
 

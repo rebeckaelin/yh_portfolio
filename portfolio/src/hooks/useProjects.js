@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import client from "../client"; // Importera din Sanity-klient
+import client from "../client";
 import imageUrlBuilder from "@sanity/image-url";
 
 const builder = imageUrlBuilder(client);
@@ -17,7 +17,16 @@ const useProjects = () => {
     const fetchProjects = async () => {
       try {
         const data = await client.fetch(
-          `*[_type == "project"]| order(_createdAt asc){title, image, description, techUsed, moreInfo} `
+          `*[_type == "project"] | order(_createdAt asc){
+            title, 
+            slug, 
+            image, 
+            description, 
+            techUsed, 
+            images,
+            moreInfo,
+            _id
+          }`
         );
         setProjects(data);
       } catch (error) {

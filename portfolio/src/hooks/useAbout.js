@@ -1,5 +1,12 @@
 import { useState, useEffect } from "react";
 import client from "../client";
+import imageUrlBuilder from "@sanity/image-url";
+
+const builder = imageUrlBuilder(client);
+
+function urlFor(source) {
+  return builder.image(source);
+}
 
 const useAbout = () => {
   const [aboutData, setAboutData] = useState(null);
@@ -23,7 +30,7 @@ const useAbout = () => {
     fetchAboutData();
   }, []);
 
-  return { aboutData, loading, error };
+  return { aboutData, loading, error, urlFor };
 };
 
 export default useAbout;

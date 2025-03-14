@@ -11,6 +11,15 @@ export default defineType({
       type: 'string',
     }),
     defineField({
+      name: 'slug',
+      title: 'Slug',
+      type: 'slug',
+      options: {
+        source: 'title',
+        maxLength: 96,
+      },
+    }),
+    defineField({
       name: 'image',
       title: 'Project Image',
       type: 'image',
@@ -31,6 +40,12 @@ export default defineType({
       name: 'moreInfo',
       title: 'More Info',
       type: 'text',
+    }),
+    defineField({
+      name: 'images',
+      title: 'additional Images',
+      type: 'array',
+      of: [{type: 'image', options: {hotspot: true}}],
     }),
   ],
 })

@@ -4,9 +4,11 @@ import imageUrlBuilder from "@sanity/image-url";
 const client = createClient({
   projectId: "be0n09rx",
   dataset: "production",
-  useCdn: true,
-  apiVersion: "2025-01-30",
-  token: import.meta.env.VITE_REACT_APP_PROJECT_API_TOKEN,
+  useCdn: false,
+  apiVersion: "2025-03-13",
+  token: import.meta.env.VITE_SANITY_TOKEN,
+  perspective: "previewDrafts",
+  ignoreBrowserTokenWarning: true,
 });
 
 const builder = imageUrlBuilder(client);

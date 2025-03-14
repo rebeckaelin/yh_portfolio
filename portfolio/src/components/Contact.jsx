@@ -1,5 +1,4 @@
 import mountain from "/mountains.png";
-
 import { motion } from "framer-motion";
 
 const Contact = () => {
