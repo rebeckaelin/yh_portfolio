@@ -26,7 +26,7 @@ const Contact = () => {
         <button className="mb-5">
           <a
             href="mailto:rebeckaelin@hotmail.com"
-            className="uppercase font-second text-base font-extralight mt-5 block hover:cursor-pointer hover:text-dark tracking-widest"
+            className="uppercase font-second text-base font-extralight mt-5 block hover:cursor-pointer underline underline-offset-3 hover:text-dark tracking-widest"
           >
             get in touch
           </a>
