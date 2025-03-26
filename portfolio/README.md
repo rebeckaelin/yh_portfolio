@@ -2,7 +2,7 @@
 
 This repository contains my personal portfolio website, showcasing my projects and skills as part of my capstone project for my education.
 
-you can visit the website on hhtps://www.rebeckaelin.se
+you can visit the website on https://www.rebeckaelin.se
 
 ## Overview
 
