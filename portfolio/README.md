@@ -2,6 +2,8 @@
 
 This repository contains my personal portfolio website, showcasing my projects and skills as part of my capstone project for my education.
 
+you can visit the website on hhtps://www.rebeckaelin.se
+
 ## Overview
 
 This portfolio website serves as a central hub to display my work, skills, and experiences. It provides visitors with an easy way to explore my projects and learn more about my capabilities as a developer.
