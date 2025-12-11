@@ -2,6 +2,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import useProjects from "../hooks/useProjects";
 import { motion } from "framer-motion";
 import ImageCarousel from "./ImageCarousel";
+import { PortableText } from "@portabletext/react";
 
 const ProjectDetail = () => {
   const { slug } = useParams();
@@ -54,9 +55,10 @@ const ProjectDetail = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 2.0, delay: 0.1 }}
           >
-            <p className="font-second text-sm lg:text-base font-extralight mt-5 leading-relaxed whitespace-pre-line">
-              {project.moreInfo}
-            </p>
+            <div className="font-second text-sm lg:text-base font-extralight mt-5 leading-relaxed whitespace-pre-line">
+              {/* {project.moreInfo} */}
+              <PortableText value={project.moreInfo} />
+            </div>
           </motion.div>
         </div>
         <div className="xl:mt-20 mb-10">

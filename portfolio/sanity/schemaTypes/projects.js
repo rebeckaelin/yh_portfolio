@@ -38,9 +38,11 @@ export default defineType({
     }),
     defineField({
       name: 'moreInfo',
+      type: 'array',
       title: 'More Info',
-      type: 'text',
+      of: [{type: 'block'}],
     }),
+
     defineField({
       name: 'images',
       title: 'additional Images',
