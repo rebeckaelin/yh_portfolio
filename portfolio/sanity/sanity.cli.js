@@ -4,8 +4,8 @@ dotenv.config()
 
 export default defineCliConfig({
   api: {
-    projectId: import.meta.env.VITE_SANITY_PROJECT_ID,
-    dataset: import.meta.env.VITE_SANITY_DATASET,
+    projectId: 'be0n09rx',
+    dataset: 'production',
   },
   autoUpdates: true,
 })
